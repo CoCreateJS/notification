@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/CoCreate-app/CoCreate-notification/compare/v1.7.1...v1.7.2) (2026-02-04)
+
+
+### Bug Fixes
+
+* update worklow ([8dc5ee4](https://github.com/CoCreate-app/CoCreate-notification/commit/8dc5ee48c8d09d38e730c0b61fd9866c6c10d32a))
+
 ## [1.7.1](https://github.com/CoCreate-app/CoCreate-notification/compare/v1.7.0...v1.7.1) (2025-05-01)
 
 
