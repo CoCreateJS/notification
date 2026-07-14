@@ -146,7 +146,6 @@ export function init() {
         server.wsManager.on('notification.subscription', (data) => subscription(data));
         server.wsManager.on('notification.send', (data) => send(data));
         server.wsManager.on('notification.user', (data) => addUser(data));
-        console.log('[@cocreate/notification] Real-time notification hooks mapped successfully.');
     } else {
         // If the shared WebSocket manager has not yet populated, check again in 500ms
         setTimeout(init, 500);
