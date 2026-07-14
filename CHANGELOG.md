@@ -1,3 +1,17 @@
+## [1.7.3](https://github.com/CoCreate-app/CoCreate-notification/compare/v1.7.2...v1.7.3) (2026-07-14)
+
+
+### Bug Fixes
+
+* bump package versions ([767dc28](https://github.com/CoCreate-app/CoCreate-notification/commit/767dc286c0294a9ecd6f507f858713f0a21a6b27))
+* remove unnecessary console logs in init function for cleaner output ([e4f332b](https://github.com/CoCreate-app/CoCreate-notification/commit/e4f332b84a44a2ec1d012e76b3b43b13307558bc))
+* removed post install and add add packages to apprved list ([a415a50](https://github.com/CoCreate-app/CoCreate-notification/commit/a415a50b539d6e9859a2e3a505ce271761a4983a))
+* root factory variable Module ([10855b9](https://github.com/CoCreate-app/CoCreate-notification/commit/10855b9873abeb18ce9535d51d2e9c6fc3072db4))
+* root factory variable Module ([684db49](https://github.com/CoCreate-app/CoCreate-notification/commit/684db498d8b64cffbb56ee2cf06572a0a9962155))
+* semantic version handling ([dd713a1](https://github.com/CoCreate-app/CoCreate-notification/commit/dd713a10695608a5f11022e6dbd7cf1c608ff824))
+* update module export to ES6 syntax in release.config.js ([26e4772](https://github.com/CoCreate-app/CoCreate-notification/commit/26e4772710eb2e4399525d51e3e6f095da080ff6))
+* update package.json to use ESM and restructure server/client entry points ([5602536](https://github.com/CoCreate-app/CoCreate-notification/commit/56025368a8117af895ad3decba35af72b7f3db52))
+
 ## [1.7.2](https://github.com/CoCreate-app/CoCreate-notification/compare/v1.7.1...v1.7.2) (2026-02-04)
 
 
