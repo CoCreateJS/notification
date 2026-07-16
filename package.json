@@ -42,6 +42,14 @@
   "type": "module",
   "main": "./src/server.js",
   "browser": "./src/client.js",
+  "exports": {
+    ".": {
+      "node": "./src/server.js",
+      "deno": "./src/server.js",
+      "browser": "./src/client.js",
+      "default": "./src/server.js"
+    }
+  },
   "devDependencies": {
     "@cocreate/webpack": "^1.4.3"
   },
