@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/CoCreate-app/CoCreate-notification/compare/v1.7.3...v1.8.0) (2026-07-17)
+
+
+### Features
+
+* update automated workflow and release configuration for improved semantic release handling ([f2f5529](https://github.com/CoCreate-app/CoCreate-notification/commit/f2f552996d7dfbee1850c735cf03ea6474da3aae))
+
 ## [1.7.3](https://github.com/CoCreate-app/CoCreate-notification/compare/v1.7.2...v1.7.3) (2026-07-14)
 
 
