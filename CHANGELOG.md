@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/CoCreate-app/CoCreate-notification/compare/v1.8.0...v1.8.1) (2026-07-17)
+
+
+### Bug Fixes
+
+* bump dependencies ([f062c6f](https://github.com/CoCreate-app/CoCreate-notification/commit/f062c6f5ee41b2d6c6d47b10c87d48e18016d980))
+
 # [1.8.0](https://github.com/CoCreate-app/CoCreate-notification/compare/v1.7.3...v1.8.0) (2026-07-17)
 
 
