@@ -21,9 +21,9 @@
     "access": "public"
   },
   "scripts": {
-    "start": "npx webpack --config webpack.config.js",
-    "build": "npx webpack --mode=production --config webpack.config.js",
-    "dev": "npx webpack --config webpack.config.js --watch"
+    "start": "webpack --config webpack.config.js",
+    "build": "webpack --mode=production --config webpack.config.js",
+    "dev": "webpack --config webpack.config.js --watch"
   },
   "repository": {
     "type": "git",
@@ -51,11 +51,11 @@
     }
   },
   "devDependencies": {
-    "@cocreate/webpack": "^1.4.3"
+    "@cocreate/webpack": "^1.6.0"
   },
   "dependencies": {
-    "@cocreate/actions": "^1.21.4",
-    "@cocreate/socket-client": "^1.40.5",
+    "@cocreate/actions": "^1.22.1",
+    "@cocreate/socket-client": "^1.41.0",
     "web-push": "^3.6.6"
   },
   "allowScripts": {
