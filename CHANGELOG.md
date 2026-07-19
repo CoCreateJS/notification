@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/CoCreate-app/CoCreate-notification/compare/v1.8.1...v1.8.2) (2026-07-19)
+
+
+### Bug Fixes
+
+* set default branch to main ([2f25bea](https://github.com/CoCreate-app/CoCreate-notification/commit/2f25bea85131436e4233235ad14b72be3cd2914c))
+
 ## [1.8.1](https://github.com/CoCreate-app/CoCreate-notification/compare/v1.8.0...v1.8.1) (2026-07-17)
 
 
