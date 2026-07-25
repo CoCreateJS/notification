@@ -26,9 +26,6 @@ import https from 'https';
 import webpush from 'web-push';
 import server from '@cocreate/server';
 
-// ==========================================
-// Module-Level Sandbox State (ESM Singleton Container)
-// ==========================================
 const newKeyMap = new Map();
 const subscriptions = new Map();
 
