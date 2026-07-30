@@ -1,5 +1,3 @@
-import crypto from 'crypto';
-import https from 'https';
 import server from '@cocreate/server';
 import { generateKeyPair, signVapid } from '@cocreate/utils';
 
