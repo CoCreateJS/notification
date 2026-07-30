@@ -51,11 +51,11 @@
     }
   },
   "devDependencies": {
-    "@cocreate/webpack": "^1.6.2"
+    "@cocreate/webpack": "^1.7.0"
   },
   "dependencies": {
-    "@cocreate/actions": "^1.22.3",
-    "@cocreate/socket-client": "^1.41.2",
+    "@cocreate/actions": "^1.23.0",
+    "@cocreate/socket-client": "^1.42.0",
     "@cocreate/server": "^1.7.0",
     "web-push": "^3.6.6"
   },
