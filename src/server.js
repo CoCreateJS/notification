@@ -1,31 +1,9 @@
-/********************************************************************************
- * Copyright (C) 2023 CoCreate and Contributors.
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as published
- * by the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program. If not, see <https://www.gnu.org/licenses/>.
- *
- ********************************************************************************/
-
-// Commercial Licensing Information:
-// For commercial use of this software without the copyleft provisions of the AGPLv3,
-// you must obtain a commercial license from CoCreate LLC.
-// For details, visit <https://cocreate.app/licenses/> or contact us at sales@cocreate.app.
-
 import crypto from 'crypto';
 import https from 'https';
-import webpush from 'web-push';
 import server from '@cocreate/server';
+import { generateKeyPair, signVapid } from '@cocreate/utils';
 
+// Internal cache for client tokens and key pairs
 const newKeyMap = new Map();
 const subscriptions = new Map();
 
@@ -48,16 +26,17 @@ export function addUser(data) {
 }
 
 /**
- * Handles fetching, tracking, or dynamically generating standard VAPID public keys.
+ * Handles fetching, tracking, or dynamically generating AST-native VAPID key pairs.
  */
 export function publicKey(data) {
     let subscription = subscriptions.get(data.clientId);
     if (!subscription) {
-        subscription = webpush.generateVAPIDKeys();
+        // Generates native EC prime256v1 key pairs without external web-push library
+        subscription = generateKeyPair('vapid');
         newKeyMap.set(data.clientId, subscription);
     }
 
-    console.log('[@cocreate/notification] Generated subscriber keys:', subscription);
+    console.log('[@cocreate/notification] Generated subscriber keys (AST):', subscription);
 
     data.publicKey = subscription.publicKey;
     if (data.socket && server && server.wsManager) {
@@ -101,15 +80,14 @@ export async function subscription(data) {
     }
 
     if (newKeys && server && server.crud) {
-        let tokenOptions = {
-            vapidDetails: {
-                subject: 'mailto:contact@cocreate.app',
-                publicKey: newKeys.publicKey,
-                privateKey: newKeys.privateKey
-            }
+        let vapidDetails = {
+            subject: 'mailto:contact@cocreate.app',
+            publicKey: newKeys.publicKey,
+            privateKey: newKeys.privateKey
         };
 
-        const jwt = webpush.generateRequestDetails(data.subscription, null, tokenOptions);
+        // Generates VAPID JWT signature and headers using AST native security helper
+        const vapidResult = signVapid(data.subscription.endpoint, vapidDetails);
 
         server.crud.send({
             method: 'object.update',
@@ -119,7 +97,8 @@ export async function subscription(data) {
                 _id: data.clientId,
                 ...data.subscription,
                 ...newKeys,
-                jwt
+                jwt: vapidResult.jwt,
+                headers: vapidResult.headers
             }
         });
     }
@@ -129,13 +108,11 @@ export async function subscription(data) {
  * Formulates payload envelopes and targets specific push distribution gateways.
  */
 export async function send(data) {
-    // Implement push sending configuration pipeline when triggered via events
+    // Custom push notification dispatch handling using AST format
 }
 
 /**
  * Auto-initialization loop.
- * Silently polls to ensure the shared socket server instance has booted and has been attached
- * to our database singleton, then maps the appropriate custom messaging routes.
  */
 export function init() {
     if (server && server.isInitialized && server.crud && server.wsManager) {
@@ -144,7 +121,6 @@ export function init() {
         server.wsManager.on('notification.send', (data) => send(data));
         server.wsManager.on('notification.user', (data) => addUser(data));
     } else {
-        // If the shared WebSocket manager has not yet populated, check again in 500ms
         setTimeout(init, 500);
     }
 }
