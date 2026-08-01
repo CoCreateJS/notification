@@ -1,5 +1,22 @@
+/********************************************************************************
+ * Copyright (C) 2023-2026 CoCreate and Contributors.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ ********************************************************************************/
+
 import server from '@cocreate/server';
-import { generateKeyPair, signVapid } from '@cocreate/utils';
+import { security } from '@cocreate/utils';
 
 // Internal cache for client tokens and key pairs
 const newKeyMap = new Map();
@@ -29,8 +46,12 @@ export function addUser(data) {
 export function publicKey(data) {
     let subscription = subscriptions.get(data.clientId);
     if (!subscription) {
-        // Generates native EC prime256v1 key pairs without external web-push library
-        subscription = generateKeyPair('vapid');
+        // Generates native NIST P-256 VAPID key pairs using Universal Security Engine
+        const keyPair = security.generateVapidKeys();
+        subscription = {
+            publicKey: keyPair.publicKey,
+            privateKey: keyPair.privateKey
+        };
         newKeyMap.set(data.clientId, subscription);
     }
 
@@ -40,6 +61,38 @@ export function publicKey(data) {
     if (data.socket && server && server.wsManager) {
         server.wsManager.send(data);
     }
+}
+
+/**
+ * Generates VAPID headers and signed JWT token using security engine primitives.
+ * Constructs an ES256-signed JWT for web push server authorization.
+ */
+function createVapidHeaders(endpoint, vapidDetails) {
+    let origin = '';
+    try {
+        const parsedUrl = new URL(endpoint);
+        origin = parsedUrl.origin;
+    } catch {
+        origin = endpoint;
+    }
+
+    // Leverage high-level security.createVapidToken composer
+    const authHeader = security.createVapidToken({
+        audience: origin,
+        subject: vapidDetails.subject || 'mailto:contact@cocreate.app',
+        publicKey: vapidDetails.publicKey
+    }, vapidDetails.privateKey);
+
+    // Extract JWT token from "vapid t=<jwt>, k=<key>"
+    const jwtMatch = authHeader.match(/vapid t=([^,]+)/);
+    const jwt = jwtMatch ? jwtMatch[1] : '';
+
+    return {
+        jwt,
+        headers: {
+            Authorization: authHeader
+        }
+    };
 }
 
 /**
@@ -78,14 +131,14 @@ export async function subscription(data) {
     }
 
     if (newKeys && server && server.crud) {
-        let vapidDetails = {
+        const vapidDetails = {
             subject: 'mailto:contact@cocreate.app',
             publicKey: newKeys.publicKey,
             privateKey: newKeys.privateKey
         };
 
-        // Generates VAPID JWT signature and headers using AST native security helper
-        const vapidResult = signVapid(data.subscription.endpoint, vapidDetails);
+        // Generates VAPID JWT signature and headers using Universal Security Engine
+        const vapidResult = createVapidHeaders(data.subscription.endpoint, vapidDetails);
 
         server.crud.send({
             method: 'object.update',
