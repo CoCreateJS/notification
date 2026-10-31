@@ -79,7 +79,7 @@ function createVapidHeaders(endpoint, vapidDetails) {
     // Leverage high-level security.createVapidToken composer
     const authHeader = security.createVapidToken({
         audience: origin,
-        subject: vapidDetails.subject || 'mailto:contact@cocreate.app',
+        subject: vapidDetails.subject || 'mailto:contact@CoCreateJS.com',
         publicKey: vapidDetails.publicKey
     }, vapidDetails.privateKey);
 
@@ -132,7 +132,7 @@ export async function subscription(data) {
 
     if (newKeys && server && server.crud) {
         const vapidDetails = {
-            subject: 'mailto:contact@cocreate.app',
+            subject: 'mailto:contact@CoCreateJS.com',
             publicKey: newKeys.publicKey,
             privateKey: newKeys.privateKey
         };
