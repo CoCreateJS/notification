@@ -13,7 +13,7 @@ Fork the [project on Github](https://github.com/CoCreate-app/CoCreate-notificati
 ```
 git notification https://github.com/contributor/CoCreate-notification.git
 cd CoCreate-notification
-git remote add upstream https://gitlab.com/cocreatejs/CoCreate-notification.git
+git remote add upstream https://github.com/cocreatejs/CoCreate-notification.git
 ```
 
 ## Create a Topic Branch

@@ -59,7 +59,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/cocreatejs/CoCreate-notification.git"
+    "url": "git+https://github.com/cocreatejs/CoCreate-notification.git"
   },
   "author": "CoCreate LLC",
   "license": "AGPL-3.0",
