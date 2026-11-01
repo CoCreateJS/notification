@@ -24,6 +24,8 @@ const subscriptions = new Map();
 
 /**
  * Specifically registers client identifiers and associated active user pairings.
+ * @public
+ * @environment server
  */
 export function addUser(data) {
     if (server && server.crud) {
@@ -42,6 +44,8 @@ export function addUser(data) {
 
 /**
  * Handles fetching, tracking, or dynamically generating AST-native VAPID key pairs.
+ * @public
+ * @environment server
  */
 export function publicKey(data) {
     let subscription = subscriptions.get(data.clientId);
@@ -66,6 +70,8 @@ export function publicKey(data) {
 /**
  * Generates VAPID headers and signed JWT token using security engine primitives.
  * Constructs an ES256-signed JWT for web push server authorization.
+ * @private
+ * @environment server
  */
 function createVapidHeaders(endpoint, vapidDetails) {
     let origin = '';
@@ -97,6 +103,8 @@ function createVapidHeaders(endpoint, vapidDetails) {
 
 /**
  * Updates, matches, and writes dynamic endpoint push registration tokens.
+ * @public
+ * @environment server
  */
 export async function subscription(data) {
     let newKeys = newKeyMap.get(data.clientId);
@@ -157,6 +165,8 @@ export async function subscription(data) {
 
 /**
  * Formulates payload envelopes and targets specific push distribution gateways.
+ * @public
+ * @environment server
  */
 export async function send(data) {
     // Custom push notification dispatch handling using AST format
@@ -164,6 +174,8 @@ export async function send(data) {
 
 /**
  * Auto-initialization loop.
+ * @public
+ * @environment server
  */
 export function init() {
     if (server && server.isInitialized && server.crud && server.wsManager) {
@@ -186,3 +198,10 @@ export default {
     subscription,
     send
 };
+
+/**
+ * Simple HTML5 & JavaScript component add, update & remove values in element's notification from input, select or js api. Easily configured using HTML5 notification and/or JavaScript API.
+ *
+ * @module notification
+ * @environment server
+ */

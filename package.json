@@ -20,38 +20,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "cocreate": {
-    "environment": [
-      "client",
-      "server"
-    ],
-    "interface": {
-      "schemaVersion": 1,
-      "summary": "Simple HTML5 & JavaScript component add, update & remove values in element's notification from input, select or js api. Easily configured using HTML5 notification and/or JavaScript API.",
-      "client": {
-        "source": "src/client.js",
-        "api": {
-          "exports": [
-            "handlePushPermission",
-            "init",
-            "unsubscribePush"
-          ]
-        }
-      },
-      "server": {
-        "source": "src/server.js",
-        "api": {
-          "exports": [
-            "addUser",
-            "init",
-            "publicKey",
-            "send",
-            "subscription"
-          ]
-        }
-      }
-    }
-  },
   "scripts": {
     "start": "webpack --config webpack.config.js",
     "build": "webpack --mode=production --config webpack.config.js",

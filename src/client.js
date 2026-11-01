@@ -22,9 +22,11 @@ import actions from '@cocreate/actions';
 /**
  * Converts a base64url encoded VAPID public key to a Uint8Array byte buffer
  * as required by the browser's native PushManager.subscribe() API.
- * 
+ *
  * @param {string} base64String - Base64url encoded VAPID public key
  * @returns {Uint8Array} Byte buffer array for applicationServerKey
+ * @private
+ * @environment client
  */
 function urlBase64ToUint8Array(base64String) {
     const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
@@ -44,6 +46,8 @@ function urlBase64ToUint8Array(base64String) {
 /**
  * Requests browser push notification permission and initializes or updates
  * the client push subscription with the server via sockets.
+ * @public
+ * @environment client
  */
 export async function handlePushPermission() {
     if (!('Notification' in window) || !('serviceWorker' in navigator)) {
@@ -117,6 +121,8 @@ export async function handlePushPermission() {
 /**
  * Unsubscribes the current device from browser push notifications
  * and removes subscription details on the backend.
+ * @public
+ * @environment client
  */
 export async function unsubscribePush() {
     if (!('serviceWorker' in navigator)) return false;
@@ -145,6 +151,8 @@ export async function unsubscribePush() {
 
 /**
  * Initializes action listeners for elements using CoCreate actions.
+ * @public
+ * @environment client
  */
 export function init() {
     // Register framework action runner for buttons with action="notification.subscribe" or "notification.unsubscribe"
@@ -194,3 +202,10 @@ export default {
     handlePushPermission,
     unsubscribePush
 };
+
+/**
+ * Simple HTML5 & JavaScript component add, update & remove values in element's notification from input, select or js api. Easily configured using HTML5 notification and/or JavaScript API.
+ *
+ * @module notification
+ * @environment client
+ */
