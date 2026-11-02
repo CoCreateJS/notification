@@ -1,3 +1,29 @@
+# [1.9.0](https://github.com/CoCreateJS/notification/compare/v1.8.2...v1.9.0) (2026-11-02)
+
+
+### Bug Fixes
+
+* add @cocreate/server dependency to package.json ([9d8157d](https://github.com/CoCreateJS/notification/commit/9d8157d9b4f643183e6a0a55287f021813b8fa15))
+* add Deno specific entries to .gitignore ([170af3e](https://github.com/CoCreateJS/notification/commit/170af3e741a130ea9306c5fdd6c66708cff68da7))
+* bump [@cocreate](https://github.com/cocreate) dependencies ([aef5f8f](https://github.com/CoCreateJS/notification/commit/aef5f8f96f05d0702bd1a68b9b55d9de37981fab))
+* bump [@cocreate](https://github.com/cocreate) package versions ([661919b](https://github.com/CoCreateJS/notification/commit/661919bcf26e8e778e2e0c7ebc144939e0300af3))
+* bump versions ([e61483d](https://github.com/CoCreateJS/notification/commit/e61483d2550e90a93b2903660b22054a82378ca3))
+* bump versions ([d84b7c5](https://github.com/CoCreateJS/notification/commit/d84b7c5f5ab783b664f57cb16253563b7c9fc1c6))
+* bumped dependencies ([f055509](https://github.com/CoCreateJS/notification/commit/f05550974fc57eef2883148883f53da1436bb9d7))
+* remove deprecated @cocreate/uuid dependency ([b819a77](https://github.com/CoCreateJS/notification/commit/b819a7735975c98a54df5958100c7b803a72dcbb))
+* remove trailing slash from node_modules entry in .gitignore ([e6e7dc4](https://github.com/CoCreateJS/notification/commit/e6e7dc4172c62fecf3aff3afde642427d8897038))
+* update git url ([167c2e8](https://github.com/CoCreateJS/notification/commit/167c2e8dbe7d1efecf317f39c2eb6c405bc60929))
+* update GitHub Actions to use latest versions and sync package.json description ([bdcafc0](https://github.com/CoCreateJS/notification/commit/bdcafc05575ffea60278b253c0899801230f4c80))
+* update VAPID key generation and JWT handling using Universal Security Engine ([d87b101](https://github.com/CoCreateJS/notification/commit/d87b101b6c8453cb3d92d91bb3b941e261fae36f))
+
+
+### Features
+
+* bump all dependencies ([27474f3](https://github.com/CoCreateJS/notification/commit/27474f37bfa497ffd549112835fb86c7135e6bac))
+* bumped all dependency versions ([5124864](https://github.com/CoCreateJS/notification/commit/5124864d0b20d6ed8e090a693ee1bf2974b410fe))
+* enhance push notification handling and improve subscription management ([1489c21](https://github.com/CoCreateJS/notification/commit/1489c21bbc8c0e841cc9cce02a02885703ee033b))
+* update dependencies and remove unused code in package.json and server.js ([e568171](https://github.com/CoCreateJS/notification/commit/e568171f0e066464cca1c8e47ae0f3a03f0443ab))
+
 ## [1.8.2](https://github.com/CoCreateJS/CoCreate-notification/compare/v1.8.1...v1.8.2) (2026-07-19)
 
 
