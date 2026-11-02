@@ -15,7 +15,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  ********************************************************************************/
 
-import server from '@cocreate/server';
+import server from '@cocreate/cluster';
 import { security } from '@cocreate/utils';
 
 // Internal cache for client tokens and key pairs
