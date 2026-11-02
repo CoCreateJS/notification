@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/CoCreateJS/notification/compare/v1.9.0...v2.0.0) (2026-11-02)
+
+
+### chore
+
+* record package identity migration as breaking ([b45aab7](https://github.com/CoCreateJS/notification/commit/b45aab7646f3268fab6cf07d08777ec8ee1877cd))
+
+
+### BREAKING CHANGES
+
+* Consumers must install @cocreate/notification and use the renamed CoCreateJS repository identity; the previous package and repository identities are no longer supported.
+
 # [1.9.0](https://github.com/CoCreateJS/notification/compare/v1.8.2...v1.9.0) (2026-11-02)
 
 
