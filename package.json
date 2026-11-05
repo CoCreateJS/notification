@@ -51,8 +51,8 @@
     }
   },
   "dependencies": {
-    "@cocreate/actions": "^1.24.0",
-    "@cocreate/cluster": "^1.12.0",
-    "@cocreate/utils": "^1.54.0"
+    "@cocreate/actions": "^2.0.0",
+    "@cocreate/cluster": "^2.0.0",
+    "@cocreate/utils": "^2.0.0"
   }
 }
