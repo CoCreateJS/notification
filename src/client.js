@@ -16,7 +16,7 @@
  *
  ********************************************************************************/
 
-import socket from '@cocreate/socket-client';
+import { SocketClient as socket } from '@cocreate/socket';
 import actions from '@cocreate/actions';
 
 /**
