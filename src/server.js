@@ -62,9 +62,7 @@ export function publicKey(data) {
     console.log('[@cocreate/notification] Generated subscriber keys (AST):', subscription);
 
     data.publicKey = subscription.publicKey;
-    if (data.socket && server?.send) {
-        server.send(data);
-    }
+    server.send(data);
 }
 
 /**
