@@ -1,3 +1,12 @@
+## [2.0.2](https://github.com/CoCreateJS/notification/compare/v2.0.1...v2.0.2) (2026-11-07)
+
+
+### Bug Fixes
+
+* complete unified socket package migration ([dcf91e2](https://github.com/CoCreateJS/notification/commit/dcf91e2c334ac591f2241a78885b513917f742f5))
+* route component responses through unified server send ([b3c8dc8](https://github.com/CoCreateJS/notification/commit/b3c8dc85e9ff77ff7faae75e313e372471118828))
+* route notification responses through server send ([2d7c40d](https://github.com/CoCreateJS/notification/commit/2d7c40d4dca8a8146eb75717e717541a5121ee32))
+
 ## [2.0.1](https://github.com/CoCreateJS/notification/compare/v2.0.0...v2.0.1) (2026-11-05)
 
 
