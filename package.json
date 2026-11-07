@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/notification",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Simple HTML5 & JavaScript component add, update & remove values in element's notification from input, select or js api. Easily configured using HTML5 notification and/or JavaScript API.",
   "keywords": [
     "cocreate",
