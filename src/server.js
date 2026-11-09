@@ -176,11 +176,11 @@ export async function send(data) {
  * @environment server
  */
 export function init() {
-    if (server && server.isInitialized && server.crud && server.wsManager) {
-        server.wsManager.on('notification.publicKey', (data) => publicKey(data));
-        server.wsManager.on('notification.subscription', (data) => subscription(data));
-        server.wsManager.on('notification.send', (data) => send(data));
-        server.wsManager.on('notification.user', (data) => addUser(data));
+    if (server && server.isInitialized && server.crud && server.on) {
+        server.on('notification.publicKey', (data) => publicKey(data));
+        server.on('notification.subscription', (data) => subscription(data));
+        server.on('notification.send', (data) => send(data));
+        server.on('notification.user', (data) => addUser(data));
     } else {
         setTimeout(init, 500);
     }
